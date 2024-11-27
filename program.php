@@ -1,4 +1,5 @@
 <?php
+$page = "Programmes";
   include "header.php";
   include_once "pwdi_db.php";
   $page='program.php';

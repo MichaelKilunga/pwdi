@@ -1,5 +1,6 @@
-
 <?php 
+$page = "About";
+$page2 = "Mission";
 include "header.php";
 //define page for posting target refresh
  $page='about.php';

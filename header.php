@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,53 +29,85 @@
 
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
+
 <body>
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
+  <header id="header" class="fixed-top  ">
     <div class="container d-flex align-items-center">
-       <div>
-      <a href="#" class="logo me-auto me-lg-0"><img src="assets/img/logo/logor.png" alt="" class="img" style="width: 200%; height: 150%"></a>
- </div>
+      <div>
+        <a href="#" class="logo me-auto me-lg-0"><img src="assets/img/logo/logor.png" alt="" class="img" style="width: 200%; height: 150%"></a>
+      </div>
       <h4 class="logo me-auto" style="margin-left:4%"><a href="index.php"><span>PW</span>DI</a></h4>
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a href="index.php" class="active">Home</a></li>
+          <li><a href="index.php" class="<?php
+                                          if ($page == "Home") {
+                                            echo "active";
+                                          }
+                                          ?>">Home</a></li>
 
-          <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="about.php" class=" <?php
+                                                  if ($page == "About") {
+                                                    echo "active";
+                                                  }
+                                                  ?>"><span>About</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="about.php">Mission & Vision</a></li>
-              <!-- <li><a href="locate.php">Locate Us</a></li> -->
-              <li><a href="values.php">Our values</a></li>
-              <li><a href="team.php">Organization Structure</a></li>
-              <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul> -->
-              </li>
-            </ul>
+              <li><a href="about.php" class="<?php
+                                              if ($page2 == "Mission") {
+                                                echo "text-warning";
+                                              }
+                                              ?>">Mission & Vision</a></li>
+              <li><a href="values.php" class="<?php
+                                              if ($page2 == "Values") {
+                                                echo "text-warning";
+                                              }
+                                              ?>">Our values</a></li>
+              <li><a href="team.php" class="<?php
+                                              if ($page2 == "Structure") {
+                                                echo "text-warning";
+                                              }
+                                              ?>">Organization Structure</a></li>
           </li>
+        </ul>
+        </li>
 
-          <li class="dropdown"><a href="#"><span>Programmes</span><i class="bi bi-chevron-down"></i></a>
+        <li class="dropdown"><a href="program.php" class="<?php
+                                                if ($page == "Programmes") {
+                                                  echo "active";
+                                                }
+                                                ?>"><span>Programmes</span><i class="bi# bi-chevron-down#"></i></a>
           <ul>
-             <!-- <li><a href="legal.php">Legal, Advocacy & Capacity Buidling</a></li> -->
-             <li><a href="program.php">Our programs</a></li>
-             <!-- <li><a href="finance.php">Finance & Admistration</a></li> -->
-            </ul>
-          </li>
+            <!-- <li><a href="legal.php">Legal, Advocacy & Capacity Buidling</a></li> -->
+            <!-- <li><a href="program.php" class="">Our programs</a></li> -->
+            <!-- <li><a href="finance.php">Finance & Admistration</a></li> -->
+          </ul>
+        </li>
 
-          <li class="dropdown"><a href="#"><span>Gallery</span><i class="bi bi-chevron-down"></i></a>
+        <li class="dropdown"><a href="gallary.php" class="<?php
+                                                if ($page == "Gallery" || $page == "Events") {
+                                                  echo "active";
+                                                }
+                                                ?>"><span>Gallery</span><i class="bi bi-chevron-down"></i></a>
           <ul>
-            <li><a href="gallary.php">Photo gallery</a></li>
-            <li><a href="events.php">Events</a></li>
-            </ul>
-          </li>
-          <!-- <li><a href="#">News</a></li> -->
-          <li><a href="contact.php">Contact Us</a></li>
-            <!--  <li><a href="./admin/view/login-form.php">Online Service</a></li> -->
+            <li><a href="gallary.php" class="<?php
+                                              if ($page2 == "Photo gallery") {
+                                                echo "text-warning";
+                                              }
+                                              ?>">Photo gallery</a></li>
+            <li><a href="events.php" class="<?php
+                                            if ($page2 == "Events") {
+                                              echo "text-warning";
+                                            }
+                                            ?>">Events</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="#">News</a></li> -->
+        <li><a href="contact.php" class="<?php
+                                          if ($page == "Contact") {
+                                            echo "active";
+                                          }
+                                          ?>">Contact Us</a></li>
+        <!--  <li><a href="./admin/view/login-form.php">Online Service</a></li> -->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -89,6 +120,7 @@
       </div>
     </div>
   </header><!-- End Header -->
-    
+
 </body>
+
 </html>

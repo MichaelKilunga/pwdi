@@ -1,7 +1,10 @@
 <?php
 
+$page = "Gallery";
+$page2 = "Photo gallery";
+
   include_once "pwdi_db.php";
-  $page='gallary.php';
+  // $page='gallary.php';
   include "header.php";
 ?>
 <html>

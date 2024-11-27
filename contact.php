@@ -1,5 +1,6 @@
 
 <?php 
+$page = "Contact";
 include "header.php";
  include_once "pwdi_db.php";
 $page='contact.php';
