@@ -1,135 +1,165 @@
 <?php
+include "header.php";
 $page2 = "Structure";
 $page = "About";
-include "header.php";
 ?>
 <style>
-  /*Now the CSS*/
-  * {
-    margin: 0;
-    padding: 0;
-  }
+  /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+.tree ul {
+  padding-top: 20px;
+  position: relative;
+  transition: all 0.5s;
+  display: flex; /* Use flexbox for responsiveness */
+  justify-content: center; /* Center child elements */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.tree li {
+  list-style-type: none;
+  text-align: center;
+  position: relative;
+  padding: 20px 5px 0 5px;
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center;
+  transition: all 0.5s;
+}
+
+/* Draw connectors */
+.tree li::before,
+.tree li::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 50%;
+  border-top: 1px solid #ccc;
+  width: 50%;
+  height: 20px;
+}
+
+.tree li::after {
+  right: auto;
+  left: 50%;
+  border-left: 1px solid #ccc;
+}
+
+/* Remove connectors for single children */
+.tree li:only-child::after,
+.tree li:only-child::before {
+  display: none;
+}
+
+/* Adjust connectors for first and last children */
+.tree li:first-child::before,
+.tree li:last-child::after {
+  border: none;
+}
+
+.tree li:last-child::before {
+  border-right: 1px solid #ccc;
+}
+
+.tree li:first-child::after {
+  border-radius: 5px 0 0 0;
+}
+
+/* Downward connectors */
+.tree ul ul::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-left: 1px solid #ccc;
+  width: 0;
+  height: 20px;
+}
+
+/* Links styling */
+.tree li a {
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #666;
+  font-family: Arial, Verdana, Tahoma;
+  font-size: 20px;
+  display: inline-block;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+
+/* Hover effects */
+.tree li a:hover,
+.tree li a:hover+ul li a {
+  background: #c8e4f8;
+  color: #000;
+  border: 1px solid #94a0b4;
+}
+
+/* Connector hover effects */
+.tree li a:hover+ul li::after,
+.tree li a:hover+ul li::before,
+.tree li a:hover+ul::before,
+.tree li a:hover+ul ul::before {
+  border-color: #94a0b4;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
   .tree ul {
-    padding-top: 20px;
-    position: relative;
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
+    padding-top: 10px;
+    flex-wrap: wrap;
   }
 
   .tree li {
-    float: left;
-    text-align: center;
-    list-style-type: none;
-    position: relative;
-    padding: 20px 5px 0 5px;
-
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-  }
-
-  /*We will use ::before and ::after to draw the connectors*/
-
-  .tree li::before,
-  .tree li::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 50%;
-    border-top: 1px solid #ccc;
-    width: 50%;
-    height: 20px;
-  }
-
-  .tree li::after {
-    right: auto;
-    left: 50%;
-    border-left: 1px solid #ccc;
-  }
-
-  /*We need to remove left-right connectors from elements without 
-  any siblings*/
-  .tree li:only-child::after,
-  .tree li:only-child::before {
-    display: none;
-  }
-
-  /*Remove space from the top of single children*/
-  .tree li:only-child {
-    padding-top: 0;
-  }
-
-  /*Remove left connector from first child and 
-  right connector from last child*/
-  .tree li:first-child::before,
-  .tree li:last-child::after {
-    border: 0 none;
-  }
-
-  /*Adding back the vertical connector to the last nodes*/
-  .tree li:last-child::before {
-    border-right: 1px solid #ccc;
-    border-radius: 0 5px 0 0;
-    -webkit-border-radius: 0 5px 0 0;
-    -moz-border-radius: 0 5px 0 0;
-  }
-
-  .tree li:first-child::after {
-    border-radius: 5px 0 0 0;
-    -webkit-border-radius: 5px 0 0 0;
-    -moz-border-radius: 5px 0 0 0;
-  }
-
-  /*Time to add downward connectors from parents*/
-  .tree ul ul::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    border-left: 1px solid #ccc;
-    width: 0;
-    height: 20px;
+    padding: 10px 5px;
   }
 
   .tree li a {
-    border: 1px solid #ccc;
-    padding: 5px 10px 10px 5px;
-    text-decoration: none;
-    color: #666;
-    font-family: arial, verdana, tahoma;
-    font-size: 25px;
-    display: inline-block;
-
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
+    font-size: 16px; /* Adjust font size for smaller screens */
+    padding: 5px;
   }
 
-  /*Time for some hover effects*/
-  /*We will apply the hover effect the the lineage of the element also*/
-  .tree li a:hover,
-  .tree li a:hover+ul li a {
-    background: #c8e4f8;
-    color: #000;
-    border: 1px solid #94a0b4;
+  .tree li::before,
+  .tree li::after {
+    width: 25%; /* Reduce connector width */
   }
 
-  /*Connector styles on hover*/
-  .tree li a:hover+ul li::after,
-  .tree li a:hover+ul li::before,
-  .tree li a:hover+ul::before,
-  .tree li a:hover+ul ul::before {
-    border-color: #94a0b4;
+  .tree ul ul::before {
+    height: 10px; /* Reduce downward connector height */
+  }
+}
+
+@media (max-width: 480px) {
+  .tree ul {
+    flex-direction: column; /* Stack everything vertically */
+    align-items: center;
   }
 
-  /*Thats all. I hope you enjoyed it.
-  Thanks :)*/
+  .tree li {
+    padding: 10px 0;
+  }
+
+  .tree li a {
+    font-size: 14px; /* Further adjust font size */
+    padding: 5px;
+  }
+
+  .tree li::before,
+  .tree li::after {
+    width: 15%; /* Narrow connectors for very small screens */
+  }
+
+  .tree ul ul::before {
+    height: 5px; /* Further reduce downward connector height */
+  }
+}
+
 </style>
 <?php
 include_once "pwdi_db.php";
@@ -149,8 +179,8 @@ $page = 'team.php';
 
     <!--organization structure  -->
     <section>
-      <div>
-      </div>
+      <!-- <div>
+      </div> -->
       <div class="tree" data-aos="fade-right">
         <ul>
           <li>
