@@ -212,7 +212,50 @@ $page = "Programmes";
                                     <div class="timeline-text">
                                         <h6><?php echo $rowb['prog_name']; ?></h6>
                                         <p><?php echo $rowb['prog_description']; ?></p>
-                                    </div>
+                                        <?php 
+                                          //call time zone unique.
+                                        date_default_timezone_set('Africa/Nairobi');
+                                        $pdh = date('Y-m-d');
+                                        $program_date=$rowb['date_established'];
+
+                                                                            
+                                    // Set the timezone
+                                    date_default_timezone_set('Africa/Nairobi');
+
+                                    // Get the current date
+                                    $pdh = date('Y-m-d');
+                                    // Assume $rowb['date_established'] contains a valid date string
+                                    $program_date = $rowb['date_established'];
+
+                                    // Convert dates to timestamps
+                                    $current_timestamp = strtotime($pdh);
+                                    $program_timestamp = strtotime($program_date);
+
+                                    // Calculate the difference in seconds
+                                    $diff_seconds = $current_timestamp-$program_timestamp;
+
+                                    // Determine if the difference is positive or negative
+                                    $sign = ($diff_seconds >= 0) ? 1 : -1;
+
+                                    // Convert the absolute difference to days, months, and years
+                                    $diff_seconds = abs($diff_seconds);
+                                    $years = floor($diff_seconds / (365*60*60*24)); 
+                                    $months = floor(($diff_seconds - $years * 365*60*60*24) / (30*60*60*24)); 
+                                    $days = floor(($diff_seconds - $years * 365*60*60*24 - $months*30*60*60*24) / (60*60*24));
+
+                                    // Apply the sign to days for clarity
+                                    $signed_days = $sign * ($years * 365 + $months * 30 + $days);
+                                     ?>
+                                     <?php if($signed_days>=0 && $signed_days<=30 ){
+                                        ?>
+                                         <p class="mt-2 btn btn-light bg-danger rounded p-1 text-white">New Program </p>
+                                        <?php
+                                     }else if($signed_days<0){
+                                        ?>
+                                        <p class="mt-2 btn btn-light bg-primary rounded p-1 text-white">Coming Program </p>
+                                        <?php
+                                     }?>
+                                </div>
                                 </div>
                             </div>
                         <?php 
@@ -231,13 +274,13 @@ $page = "Programmes";
 
                      <div class="row">
                          <?php
+                         
                            $sqlib="SELECT * FROM `program` AS p JOIN `category` AS c ON p.category_id=c.category_id WHERE c.category_id='$row[category_id]' AND p.prog_status='enable'";
                            $resultb=mysqli_query($conn,$sqlib);
                            $count=mysqli_num_rows($resultb);
                            $i=1;
                            while ($i<=$count) {
                             
-                         
                            while ($rowb=mysqli_fetch_assoc($resultb)){
                               ?>
                             <div class="col-12 col-md-6 col-lg-4">
@@ -246,8 +289,52 @@ $page = "Programmes";
                                     <div class="timeline-text">
                                         <h6><?php echo $rowb['prog_name']; ?></h6>
                                         <p><?php echo $rowb['prog_description']; ?></p>
+                                        <?php 
+                                          //call time zone unique.
+                                        date_default_timezone_set('Africa/Nairobi');
+                                        $pdh = date('Y-m-d');
+                                        $program_date=$rowb['date_established'];
+
+                                                                            
+                                    // Set the timezone
+                                    date_default_timezone_set('Africa/Nairobi');
+
+                                    // Get the current date
+                                    $pdh = date('Y-m-d');
+                                    // Assume $rowb['date_established'] contains a valid date string
+                                    $program_date = $rowb['date_established'];
+
+                                    // Convert dates to timestamps
+                                    $current_timestamp = strtotime($pdh);
+                                    $program_timestamp = strtotime($program_date);
+
+                                    // Calculate the difference in seconds
+                                    $diff_seconds = $current_timestamp-$program_timestamp;
+
+                                    // Determine if the difference is positive or negative
+                                    $sign = ($diff_seconds >= 0) ? 1 : -1;
+
+                                    // Convert the absolute difference to days, months, and years
+                                    $diff_seconds = abs($diff_seconds);
+                                    $years = floor($diff_seconds / (365*60*60*24)); 
+                                    $months = floor(($diff_seconds - $years * 365*60*60*24) / (30*60*60*24)); 
+                                    $days = floor(($diff_seconds - $years * 365*60*60*24 - $months*30*60*60*24) / (60*60*24));
+
+                                    // Apply the sign to days for clarity
+                                    $signed_days = $sign * ($years * 365 + $months * 30 + $days);
+                                     ?>
+                                     <?php if($signed_days>=0 && $signed_days<=30 ){
+                                        ?>
+                                         <p class="mt-2 btn btn-light bg-danger rounded p-1 text-white">New Program </p>
+                                        <?php
+                                     }else if($signed_days<0){
+                                        ?>
+                                        <p class="mt-2 btn btn-light bg-primary rounded p-1 text-white">Coming Program </p>
+                                        <?php
+                                     }?>
                                     </div>
                                 </div>
+                                
                             </div>
                         <?php 
                         $i++;

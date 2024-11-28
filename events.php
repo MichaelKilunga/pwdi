@@ -190,7 +190,7 @@ include "header.php";
                       <li class="event-list">
                         <div class="timeline-icon">
                           <?php
-                          //call time for making picture uploaded unique.
+                          //call time zone unique.
                           date_default_timezone_set('Africa/Nairobi');
                           $pdh = date('Y-m-d');
 
