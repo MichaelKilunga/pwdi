@@ -64,8 +64,13 @@ $page2 = "Photo gallery";
                ">
         <div class="portfolio-info">
           <h4><?php echo $rowa['gallery_title']; ?></h4>
-          <p><?php echo $rowa['gallery_description']; ?></p>
-          <a href="<?php echo $photo; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<?php echo $rowa['gallery_title'].' : '.$rowa['gallery_description']; ?>"><i class="bx bx-plus"></i></a>
+          <?php
+            // Example usage with your gallery description
+            $description = $rowa['gallery_description'];
+            $limitedDescription = limitWords($description,10);
+            ?>
+            <p><?php echo $limitedDescription; ?></p>
+           <a href="<?php echo $photo; ?>" data-gallery="portfolioGallery" class="btn btn-sm btn-success portfolio-lightbox mt-2" title="<?php echo $rowa['gallery_title'].' : '.$rowa['gallery_description']; ?>">Read more</a>
         </div>
       </div>
     <?php
@@ -85,3 +90,18 @@ $page2 = "Photo gallery";
     ?>
 </body>
 </html>
+<?php
+   function limitWords($text, $limit) {
+    // Split the text into an array of words
+    $words = explode(' ', $text);
+
+    // Check if the word count exceeds the limit
+    if (count($words) > $limit) {
+        // Join only the first $limit words and append "..." to indicate truncation
+        return implode(' ', array_slice($words, 0, $limit)) . '...';
+    }
+
+    // If the word count is within the limit, return the original text
+    return $text;
+}
+?>
