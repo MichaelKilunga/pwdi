@@ -191,9 +191,10 @@ $page = 'team.php';
     <section>
       <!-- <div>
       </div> -->
-      <div class="tree" data-aos="fade-right">
+      <div class="min-vw-80 min-vh-60 d-flex justify-content-center" data-aos="fade-right">
+              <img src="assets/img/organization-structure.JPG" style="height: 60vh; width: 80vw;">
         <ul>
-          <li>
+          <!-- <li>
             <a href="#">Annual General Meeting(AGM)</a>
             <ul>
               <li>
@@ -226,7 +227,7 @@ $page = 'team.php';
                     </ul>
                   </li>
                 </ul>
-              </li>
+              </li> -->
             </ul>
       </div>
       <div class="container" data-aos="fade-left">
@@ -248,7 +249,7 @@ $page = 'team.php';
 
         <div class="section-title" data-aos="fade-up">
           <h3><strong>Our Team</strong></h3>
-          <!-- <p>Welcome PWDI Non Governmental Organization, meet with the team of our staffs in our organization for making achievement of office operations better.</p> -->
+          <!-- <p>Meet PWDI Team</p> -->
         </div>
 
         <div class="row">
