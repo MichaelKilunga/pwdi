@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2024 at 08:35 AM
+-- Generation Time: Nov 28, 2024 at 08:49 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -98,13 +98,13 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`events_id`, `events_title`, `events_description`, `events_date`, `events_status`) VALUES
-(2, 'women Training', 'Women Empowerment training, activity at Chamwino Morogoro Tanzania.', '2024-10-20', 'enable'),
-(6, 'AVP Programs', 'Alternative to violence peace trainings (AVP) for the community members.', '2024-10-21', 'disable'),
-(7, 'Tenure security', 'Land rights and tenure security (CCROs) capacity building to community especially women, youth and leadership forums.', '2024-11-01', 'enable'),
+(2, 'women Training', 'Women Empowerment training, activity at Chamwino Morogoro Tanzania.', '2024-11-28', 'enable'),
+(6, 'AVP Programs', 'Alternative to violence peace trainings (AVP) for the community members.', '2024-11-09', 'disable'),
+(7, 'Tenure security', 'Land rights and tenure security (CCROs) capacity building to community especially women, youth and leadership forums.', '2024-11-27', 'enable'),
 (9, 'Education', 'Mobilizing community groups in a service network of savings and loans for community based microfinance', '2024-10-22', 'enable'),
 (10, 'Microfinance', 'Vicoba seminar at chifu kingalu Smora Hall', '2024-10-25', 'enable'),
-(12, 'Michezo', 'Michezo kwa afya ya mwanadamu', '2024-11-01', 'enable'),
-(13, 'School Clubs', 'Linkages and collaboration with like minded organization .', '2024-11-23', 'enable');
+(12, 'Michezo', 'Michezo kwa afya ya mwanadamu', '2024-11-29', 'enable'),
+(13, 'School Clubs', 'Linkages and collaboration with like minded organization .', '2024-11-27', 'enable');
 
 -- --------------------------------------------------------
 
@@ -178,11 +178,9 @@ CREATE TABLE `slide` (
 --
 
 INSERT INTO `slide` (`slide_id`, `slide_title`, `slide_description`, `slide_status`, `slide_photo`) VALUES
-(14, 'Women and Men', 'Use of volunteers’ services from local communities and use of influential traditional leaders (women and men).', 'enable', '../slides/slide-20241020_004634.jpeg'),
-(19, 'School Clubs', 'Establishment of environment and land rights school clubs,Programmes for cultural exchange, Community library for reading, borrowing and exchange of ideas.', 'enable', '../slides/slide-20241026_183637.jpeg'),
-(22, 'Empowerment', 'Youth empowerment activities such as sports, theatre, career development and drug abuse training, as well as building overall awareness and engagement through youth group projects.', 'disable', '../slides/slide-20241031_002026.jpeg'),
-(23, 'Human Diseases', 'HIV & AIDS, Malaria and TB awareness, counseling, support innovative programmes in orphans and vulnerable children and home based health care (HBC) for the HIV affected.', 'disable', '../slides/slide-20241119_141139.jpeg'),
-(24, 'Volunteers', 'A volunteer program deploying of volunteers and places villagers in groups charged with specific community tasks in relation to their skills.', 'enable', '../slides/slide-20241121_172726.jpeg');
+(22, 'Empowerment', 'Youth empowerment activities such as sports, theatre, career development and drug abuse training.', 'enable', '../slides/slide-20241126_143710.jpeg'),
+(30, 'Testing slide', 'Android posting ', 'enable', '../slides/slide-20241126_150254.jpeg'),
+(31, 'Testing slider 2', 'Testing purpose', 'enable', '../slides/slide-20241126_150427.jpeg');
 
 -- --------------------------------------------------------
 
@@ -209,7 +207,8 @@ INSERT INTO `staff` (`staff_id`, `staff_name`, `staff_email`, `staff_password`, 
 (29, 'William Tangwa', 'williamtangwa95@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'Yes', 'Program Officer', '../staff/user-20241030_231403.jpeg', 'active'),
 (34, 'Catherine Peter', 'cathe@gmail.com', 'bbc1381a070e4864960b715e74ddeee2', 'No', 'Finance & admin officer', '../staff/user-20241101_141204.png', 'active'),
 (35, 'Alex Kasele', 'akasele@gmail.com', '3a650419be21533e570844d2593c5ae9', 'Yes', 'Executive Director', '../staff/user-20241101_222117.png', 'active'),
-(36, 'Joyce Dean', 'jdean7@gmail.com', '45a04f0c6130246c111d1ece5027738f', 'No', 'Secretary', '../staff/user-20241111_160120.png', 'active');
+(36, 'Joyce Dean', 'jdean7@gmail.com', '45a04f0c6130246c111d1ece5027738f', 'No', 'Secretary', '../staff/user-20241111_160120.png', 'active'),
+(37, 'MICHAEL KILUNGA', 'micksimon30@gmail.com', 'fae980456d9537fb364477f70d71443c', 'Yes', 'Dev', '../staff/user-20241126_105257.png', 'active');
 
 -- --------------------------------------------------------
 
@@ -403,13 +402,13 @@ ALTER TABLE `program`
 -- AUTO_INCREMENT for table `slide`
 --
 ALTER TABLE `slide`
-  MODIFY `slide_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `slide_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `subscriber`
