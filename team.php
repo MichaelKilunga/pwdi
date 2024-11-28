@@ -192,7 +192,7 @@ $page = 'team.php';
       <!-- <div>
       </div> -->
       <div class="min-vw-80 min-vh-60 d-flex justify-content-center" data-aos="fade-right">
-              <img src="assets/img/organization-structure.JPG" style="height: 60vh; width: 80vw;">
+              <img src="assets/img/organization-structure.JPG" style="height: 100%; width: 100%;">
         <ul>
           <!-- <li>
             <a href="#">Annual General Meeting(AGM)</a>
