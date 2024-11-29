@@ -9,7 +9,7 @@
   <!-- <meta content="" name="description">
   <meta content="" name="keywords"> -->
   <meta name="description" content="PWDI is a Civil Society Organization, Non-Profit and Non-Governmental initiated in 2018 to help spearhead community driven development initiatives and enable needy community groups especially women, youth participate in integrated activities to achieve quality livelihood and be self-sustainable. PWDI delivers its activities through the power and spirit of volunteerism approach to build sustainable communities / intercultural exchange and thriving villages in our country.">
-  <meta name="keywords" content="PWDI, Pastoralists Women Development Impetus (PWDI),PWDI Morogoro " />
+  <meta name="keywords" content="PWDI, Pastoralists Women Development Impetus (PWDI),PWDI Morogoro, PWDI Tanzania" />
   <meta name="author" content="Pastoralists Women Development Impetus (PWDI)">
 
   <!-- Favicons -->
