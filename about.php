@@ -1,6 +1,7 @@
 <?php 
 $page = "About";
 $page2 = "Mission";
+include_once "pwdi_db.php";
 include "header.php";
 //define page for posting target refresh
  $page='about.php';

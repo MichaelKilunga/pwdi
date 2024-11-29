@@ -25,7 +25,15 @@
                   ><span class="hide-menu">User</span></a
                 >
               </li>
-
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="contact-info.php"
+                  aria-expanded="false"
+                  ><i class="fas fa-envelope"></i
+                  ><span class="hide-menu">Contact info</span></a
+                >
+              </li>
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"

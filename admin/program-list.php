@@ -323,6 +323,13 @@ if (isset($_POST['submit'])) {
 
   $result = mysqli_query($conn, $sqli);
   if ($result == TRUE) {
+    $sqli1 = "SELECT * FROM subscriber WHERE `sub_status`='active'";
+    $result1 = mysqli_query($conn, $sqli1);
+    $emailbody = '<b>'.$title.'</b><hr>'.$description;
+    include_once('../email.php');
+    while($row1=mysqli_fetch_assoc($result1)){
+      sendEmail($emailbody,"NEW PROGRAM ADDED!",$row1['sub_email']);
+    }
 ?>
     <script type="text/javascript">
       window.location = 'program-list.php';

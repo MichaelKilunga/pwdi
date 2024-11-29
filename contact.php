@@ -1,10 +1,10 @@
-
-<?php 
+<?php
 $page = "Contact";
 include "header.php";
- include_once "pwdi_db.php";
-$page='contact.php';
+include_once "pwdi_db.php";
+$page = 'contact.php';
 ?>
+
 <body>
   <main id="main">
     <!-- ======= Breadcrumbs ======= -->
@@ -31,22 +31,29 @@ $page='contact.php';
 
             <div class="info-wrap">
               <div class="row">
+                <?php
+                $sqli2 = "SELECT * FROM `contact-info`";
+                $result2 = mysqli_query($conn, $sqli2);
+                $row_contact2 = mysqli_fetch_assoc($result2);
+                ?>
                 <div class="col-lg-4 info">
                   <i class="bi bi-geo-alt"></i>
                   <h4>Location:</h4>
-                  <p>B.115 Soko Kuu la Kingalu<br>Morogoro, P.O. Box 1354</p>
+                  <p><?php echo $row_contact2['info_location']; ?> <br>
+          <?php echo $row_contact2['info_address']; ?><br>
+          United Republic of Tanzania <br></p>
                 </div>
 
                 <div class="col-lg-4 info mt-4 mt-lg-0">
                   <i class="bi bi-envelope"></i>
                   <h4>Email:</h4>
-                  <p>info@pwdi.or.tz<br>contact@pwdi.or.tz</p>
+                  <p><?php echo $row_contact2['info_email']; ?><br><?php echo $row_contact2['info_altenativeemail']; ?></p>
                 </div>
 
                 <div class="col-lg-4 info mt-4 mt-lg-0">
                   <i class="bi bi-phone"></i>
                   <h4>Call:</h4>
-                  <p>+255 (0) 783775452<br></p>
+                  <p><?php echo $row_contact2['info_phone']; ?><br><?php echo $row_contact2['info_altenativephone']; ?><br></p>
                 </div>
               </div>
             </div>
@@ -57,14 +64,14 @@ $page='contact.php';
 
         <div class="row mt-5 justify-content-center" data-aos="fade-up">
           <div class="col-lg-10 card p-4 bg-white shadow p-3 mb-5 bg-body rounded">
-            <form action="" method="post" role="form" >
+            <form action="" method="post" role="form">
               <div class="row">
                 <p class="h4 text-center">For any enquiry and suggestion please fill this form.</p>
                 <hr class="p-2 mt-3 text-success">
-                 <div class="col-md-4 form-group">
+                <div class="col-md-4 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                 </div>
-                  <div class="col-md-4 form-group mt-3 mt-md-0">
+                <div class="col-md-4 form-group mt-3 mt-md-0">
                   <input type="text" class="form-control" name="phone" id="phone" placeholder="Your phone" required>
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
@@ -75,7 +82,7 @@ $page='contact.php';
                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea> 
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
               </div>
               <div class="text-center mt-3"><button type="submit" name="submit" class="btn btn-success btn-md text-white">Send Message</button></div>
             </form>
@@ -96,23 +103,23 @@ $page='contact.php';
 <?php
 // include_once 'include/pwdi_db.php';
 
-if (isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $phone = mysqli_real_escape_string($conn, $_POST['phone']);
-    $message = mysqli_real_escape_string($conn, $_POST['message']);
-    $subject = mysqli_real_escape_string($conn, $_POST['subject']);
+  $name = mysqli_real_escape_string($conn, $_POST['name']);
+  $email = mysqli_real_escape_string($conn, $_POST['email']);
+  $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+  $message = mysqli_real_escape_string($conn, $_POST['message']);
+  $subject = mysqli_real_escape_string($conn, $_POST['subject']);
 
-      $sqliv="INSERT INTO `contact`(`contact_name`, `contact_email`, `contact_phone`, `contact_subject`, `contact_message`, `contact_date`, `contact_status`) VALUES ('$name','$email','$phone','$subject','$message',now(),'new')";
-      $resultv=mysqli_query($conn,$sqliv);
-              if ($resultv== TRUE) {
-                              ?>
-                                  <script type="text/javascript">  
-                                    window.location='<?php echo $page; ?>';
-                                    alert('Message sent successfully. Thank you');
-                                  </script>
-                              <?php
-               }
-      }
+  $sqliv = "INSERT INTO `contact`(`contact_name`, `contact_email`, `contact_phone`, `contact_subject`, `contact_message`, `contact_date`, `contact_status`) VALUES ('$name','$email','$phone','$subject','$message',now(),'new')";
+  $resultv = mysqli_query($conn, $sqliv);
+  if ($resultv == TRUE) {
+?>
+    <script type="text/javascript">
+      window.location = '<?php echo $page; ?>';
+      alert('Message sent successfully. Thank you');
+    </script>
+<?php
+  }
+}
 ?>

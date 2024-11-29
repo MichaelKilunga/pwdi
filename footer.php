@@ -6,13 +6,19 @@
     <div class="row">
 
       <div class="col-lg-3 col-md-6 footer-contact">
+      <?php
+                                            $sqli = "SELECT * FROM `contact-info`";
+                                            $result = mysqli_query($conn, $sqli);
+                                            $row_contact = mysqli_fetch_assoc($result);
+
+                                                  ?>
         <h3>PWDI Company</h3>
         <p>
-          B.115 Soko Kuu Chief Kingalu <br>
-          Morogoro, P.O. Box 1354<br>
+          <?php echo $row_contact['info_location']; ?> <br>
+          <?php echo $row_contact['info_address']; ?><br>
           United Republic of Tanzania <br><br>
-          <strong>Mobile Phone:</strong> +255 (0) 76 775 452<br>
-          <strong>Email:</strong> info@pwdi.or.tz<br>
+          <span class="mt-1"><strong>Mobile Phone:</strong> <?php echo $row_contact['info_phone']; ?><br><?php echo $row_contact['info_altenativephone']; ?><br><br>
+          <strong>Email:</strong> <?php echo $row_contact['info_email']; ?><br><?php echo $row_contact['info_altenativeemail']; ?><br>
         </p>
       </div>
 
@@ -22,7 +28,6 @@
           <li><i class="bx bx-chevron-right"></i> <a href="index.php">Home</a></li>
           <li><i class="bx bx-chevron-right"></i> <a href="about.php">About us</a></li>
           <li><i class="bx bx-chevron-right"></i> <a href="contact.php">Contact us</a></li>
-          <!-- <li><i class="bx bx-chevron-right"></i> <a href="events.php">Events</a></li> -->
           <li><i class="bx bx-chevron-right"></i> <a href="gallary.php">Gallery</a></li>
         </ul>
       </div>
@@ -61,11 +66,11 @@
     </div>
   </div>
   <div class="social-links text-center text-md-right pt-3 pt-md-0">
-    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+    <a href="#x" class="twitter"><i class="bx bxl-twitter"></i></a>
+    <a href="#facebook" class="facebook"><i class="bx bxl-facebook"></i></a>
     <a href="https://www.instagram.com/pwdi2018?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="instagram"><i class="bx bxl-instagram"></i></a>
-    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+    <!-- <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> -->
   </div>
 </div>
 </footer><!-- End Footer -->
@@ -101,6 +106,8 @@ if (isset($_POST['subscriber'])){
       $sqlis="INSERT INTO `subscriber`(`sub_email`,`sub_status`, `sub_date`) VALUES ('$email','active',now())";
       $results=mysqli_query($conn,$sqlis);
               if ($results == TRUE) {
+                include_once('email.php');
+                sendEmail("Thank you for subscribing, we appreciate your action!", "SUBSCRIBED SUCCESSFULLY!", $email);
                    ?>
                     <script type="text/javascript"> 
                       window.location='<?php echo $page; ?>'; 

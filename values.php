@@ -1,6 +1,7 @@
 <?php
 $page = 'About';
 $page2 = 'Values';
+include_once "pwdi_db.php";
 include 'header.php';
 ?>
 <html>

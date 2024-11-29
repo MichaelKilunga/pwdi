@@ -115,10 +115,10 @@
       </nav><!-- .navbar -->
 
       <div class="header-social-links d-flex">
-        <a href="#" class="twitter"><i class="bu bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bu bi-facebook"></i></a>
+        <a href="#x" class="twitter"><i class="bu bi-twitter"></i></a>
+        <a href="#facebook" class="facebook"><i class="bu bi-facebook"></i></a>
         <a href="https://www.instagram.com/pwdi2018?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="instagram"><i class="bu bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a>
+        <!-- <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a> -->
       </div>
     </div>
   </header><!-- End Header -->

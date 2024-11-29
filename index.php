@@ -552,7 +552,7 @@ $page = 'index.php';
   }
 
   .carousel-item {
-    /* height: 60vh; */
+    height: 80%;
     min-height: 350px;
     background: no-repeat center center scroll;
     -webkit-background-size: cover;
